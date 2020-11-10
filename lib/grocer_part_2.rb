@@ -9,7 +9,7 @@ def apply_coupons(cart, coupons)
       if coupon[:item] == grocery[:item]
         grocery[:count] -= coupon[:num]
         cart << {
-          item: coupon[:name] + " W/COUPON",
+          item: coupon[:item] + " W/COUPON",
           price: coupon[:price] / coupon[:num],
           clearance: grocery[:clearance],
           count: coupon[:num]
