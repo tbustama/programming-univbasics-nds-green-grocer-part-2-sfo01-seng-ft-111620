@@ -20,7 +20,7 @@ end
 def apply_clearance(cart)
   cart.each do |grocery|
     if grocery[:clearance] == true
-      grocery[:price] /= (1.2)
+      grocery[:price] /= (1.25)
     end
   end
   return cart
