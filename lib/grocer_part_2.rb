@@ -7,7 +7,7 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     cart.each do |grocery|
       if coupon[:item] == grocery[:item]
-        cart[grocery][:count] -= coupon[:num]
+        cart[grocery][:count] -= coupon[:num].to_i
         cart << {
           item: coupon[:name] + " W/COUPON",
           price: coupon[:price] / coupon[:num],
