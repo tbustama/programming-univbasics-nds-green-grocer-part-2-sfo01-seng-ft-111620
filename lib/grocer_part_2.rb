@@ -4,14 +4,20 @@ def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
-  new_arr = []
   coupons.each do |coupon|
     cart.each do |grocery|
       if coupon[:item] == grocery[:item]
-        
+        cart[grocery][:count] -= coupon[:num]
+        cart << {
+          item: coupon[:name] + " W/COUPON",
+          price: coupon[:price] / coupon[:num],
+          clearance: grocery[:clearance],
+          count: coupon[:num]
+        }
       end
     end 
   end
+  return cart
 end
 
 def apply_clearance(cart)
